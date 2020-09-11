@@ -4,7 +4,7 @@
  *      *** Do not modify ! ***
  *
  * Project: 'main' 
- * Target:  'Target 1' 
+ * Target:  'AirHandler' 
  */
 
 #ifndef RTE_COMPONENTS_H
