@@ -35,12 +35,18 @@ uint8_t led_flag1 = 0;
 uint8_t led_flag2 = 0;
 uint8_t led_flag3 = 0;
 uint8_t led_flag4 = 0;
+uint8_t print_flag =0;
+
+uint32_t input = 0;
+uint8_t input_tag=0;
+uint32_t input_tmp=0;
 
 void Delay(unsigned long d_t);
 void PinConfig(void);
 void ADCConfig(void);
 void EXTIConfig(void);
 void TIMER0Config(void);
+void MOD_printing(uint8_t mod);
 
 /* Private struct ---------------------------------------------------------*/
 TIM_TIMERCFG_Type TIM_ConfigStruct;
@@ -73,12 +79,13 @@ int main(){
 			Delay(10000);
 		}
 		else{
-			uint32_t input = 0;
-			uint32_t input_tmp = Keypad('C');
-			input = input_tmp;
+			input = Keypad('C');
 			Delay(5000);
-			if(input != 0) Mode(input);
-			
+			if(input != 0){
+				input_tag = input;
+				Mode(input);
+			}
+			MOD_printing(input_tag);
 			time_handle = Joystick_read(); //JoyStick 읽기
 			Delay(5000);
 			if(time_handle_check == 0){
@@ -100,10 +107,16 @@ int main(){
 	}
 }
 
+
+
+
 void TIMER0_IRQHandler(void){   // 1초에 한번 씩 진입
    TIM_ClearIntPending(LPC_TIM0, TIM_MR0_INT); //TIM0 interrupt clear
    
    // 초 : 1의 자리 , 10의 자리 / 분 : 1의 자리, 10의 자리
+	if(print_flag >0)
+	print_flag --;
+	
    time_flag++;
    if(time_flag == 10) time_flag =0;
    
