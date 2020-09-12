@@ -3,7 +3,6 @@
 #define __Keypad_H__
 
 #include "LPC17XX.h"
-#include "lpc_types.h"
 
 void Keypad_Init(void);
 void Keypad_DIR_Output(void);

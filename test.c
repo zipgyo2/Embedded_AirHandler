@@ -2,6 +2,7 @@
 #include "lpc17xx_exti.h"
 #include "lpc17xx_pinsel.h"
 #include "lpc17xx_clkpwr.h"
+#include "lpc17xx_timer.h"
 #include "debug_frmwrk.h"
 
 #include "led.h"

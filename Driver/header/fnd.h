@@ -12,7 +12,6 @@
 
 /* Includes ------------------------------------------------------------------- */
 #include "LPC17XX.h"
-#include "lpc_types.h"
 
 #define	FND_A		(1<<23)	//	FND A
 #define	FND_B		(1<<24)	//	FND B

@@ -337,7 +337,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>..\Huins_NXP_LPC1768_Library\Drivers\include;.\Driver\header;..\..\..\Desktop\Cortex-M3\source_code\Huins_NXP_LPC1768_Library\Drivers\include</IncludePath>
+              <IncludePath>.\Driver\header</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -417,44 +417,49 @@
               <FilePath>.\Driver\source\Clock.c</FilePath>
             </File>
             <File>
+              <FileName>debug_frmwrk.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Driver\source\debug_frmwrk.c</FilePath>
+            </File>
+            <File>
               <FileName>lpc17xx_adc.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\Desktop\Cortex-M3\source_code\Huins_NXP_LPC1768_Library\Drivers\source\lpc17xx_adc.c</FilePath>
+              <FilePath>.\Driver\source\lpc17xx_adc.c</FilePath>
             </File>
             <File>
               <FileName>lpc17xx_clkpwr.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\Desktop\Cortex-M3\source_code\Huins_NXP_LPC1768_Library\Drivers\source\lpc17xx_clkpwr.c</FilePath>
+              <FilePath>.\Driver\source\lpc17xx_clkpwr.c</FilePath>
             </File>
             <File>
               <FileName>lpc17xx_exti.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\Desktop\Cortex-M3\source_code\Huins_NXP_LPC1768_Library\Drivers\source\lpc17xx_exti.c</FilePath>
+              <FilePath>.\Driver\source\lpc17xx_exti.c</FilePath>
             </File>
             <File>
               <FileName>lpc17xx_libcfg_default.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\Desktop\Cortex-M3\source_code\Huins_NXP_LPC1768_Library\Drivers\source\lpc17xx_libcfg_default.c</FilePath>
+              <FilePath>.\Driver\source\lpc17xx_libcfg_default.c</FilePath>
             </File>
             <File>
               <FileName>lpc17xx_pinsel.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\Desktop\Cortex-M3\source_code\Huins_NXP_LPC1768_Library\Drivers\source\lpc17xx_pinsel.c</FilePath>
+              <FilePath>.\Driver\source\lpc17xx_pinsel.c</FilePath>
             </File>
             <File>
-              <FileName>lpc17xx_timer.c</FileName>
+              <FileName>lpc17xx_uart.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\Desktop\Cortex-M3\source_code\Huins_NXP_LPC1768_Library\Drivers\source\lpc17xx_timer.c</FilePath>
+              <FilePath>.\Driver\source\lpc17xx_uart.c</FilePath>
             </File>
             <File>
               <FileName>mode.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\mode.c</FilePath>
+              <FilePath>.\Driver\source\mode.c</FilePath>
             </File>
             <File>
-              <FileName>mode.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\mode.h</FilePath>
+              <FileName>lpc17xx_timer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Driver\source\lpc17xx_timer.c</FilePath>
             </File>
           </Files>
         </Group>
