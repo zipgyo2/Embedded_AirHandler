@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\11.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\11.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Sat Sep 12 17:42:36 2020
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Sat Sep 12 18:15:50 2020
 <BR><P>
 <H3>Maximum Stack Usage =        120 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -560,7 +560,8 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[57]"></a>Delay</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, test.o(i.Delay))
-<BR><BR>[Called By]<UL><LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MOD_printing
+<BR><BR>[Called By]<UL><LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Mode
+<LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MOD_printing
 <LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Joystick_read
 <LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FND_printing
 <LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Cycle_Reverse
@@ -797,12 +798,13 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[75]"></a>Mode</STRONG> (Thumb, 246 bytes, Stack size 16 bytes, mode.o(i.Mode))
+<P><STRONG><a name="[75]"></a>Mode</STRONG> (Thumb, 286 bytes, Stack size 16 bytes, mode.o(i.Mode))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = Mode
 </UL>
 <BR>[Calls]<UL><LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Led_On
 <LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Led_Off
 <LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Led_All_Off
+<LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Delay
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -814,9 +816,9 @@ Global Symbols
 <P><STRONG><a name="[55]"></a>PINSEL_ConfigPin</STRONG> (Thumb, 36 bytes, Stack size 8 bytes, lpc17xx_pinsel.o(i.PINSEL_ConfigPin))
 <BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = PINSEL_ConfigPin &rArr; set_ResistorMode
 </UL>
-<BR>[Calls]<UL><LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_ResistorMode
+<BR>[Calls]<UL><LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_OpenDrainMode
+<LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_ResistorMode
 <LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_PinFunc
-<LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_OpenDrainMode
 </UL>
 <BR>[Called By]<UL><LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AF_ConfigPin
 <LI><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PinConfig
@@ -925,7 +927,7 @@ Global Symbols
 <LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ADC_ChannelCmd
 </UL>
 
-<P><STRONG><a name="[3f]"></a>main</STRONG> (Thumb, 324 bytes, Stack size 0 bytes, test.o(i.main))
+<P><STRONG><a name="[3f]"></a>main</STRONG> (Thumb, 300 bytes, Stack size 0 bytes, test.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = main &rArr; TIMER0Config &rArr; TIM_Init &rArr; converUSecToVal &rArr; __aeabi_uldivmod
 </UL>
 <BR>[Calls]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Time_SelectDP

@@ -73,6 +73,7 @@ void Mode(uint32_t input){
 			led_flag1 = 1;
 			Led_On(1);
 			Led_On(2);
+			Delay(5000);
 			break;
 			
 		case 5:
@@ -84,6 +85,7 @@ void Mode(uint32_t input){
 			led_flag2 = 1;
 			Led_On(3);
 			Led_On(4);
+			Delay(5000);
 			break;
 			
 		case 6:
@@ -95,6 +97,7 @@ void Mode(uint32_t input){
 			led_flag3 = 1;
 			Led_On(5);
 			Led_On(6);
+			Delay(5000);
 			break;
 			
 		case 11:
@@ -106,6 +109,7 @@ void Mode(uint32_t input){
 			led_flag4 = 1;
 			Led_On(7);
 			Led_On(8);
+			Delay(5000);
 			break;
 			
 		case 15:
@@ -114,6 +118,7 @@ void Mode(uint32_t input){
 			led_flag2=0;
 			led_flag3=0;
 			led_flag4=0;
+			Delay(5000);
 			break;
 	}
 }

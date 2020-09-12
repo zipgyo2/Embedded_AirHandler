@@ -80,13 +80,8 @@ int main(){
 			input = Keypad('C');
 			Delay(5000);
 			if(input != 0){
-				input_tag = input;
 				Mode(input);
-				if(int_flag == 1) {
-					adc_flag = 0;
-					int_flag = 0;
-				}
-				int_flag = 1;
+				int_flag ^= 0;
 			}
 		}
 		else{
@@ -178,7 +173,7 @@ void ADC_IRQHandler(void)
 void EINT0_IRQHandler(void)
 {
 	EXTI_ClearEXTIFlag(EXTI_EINT0);   // Interrupt ??? ??? ?? ?? ?? ??? ???.
-	int_flag = int_flag^0x1;
+	int_flag ^= 1;
 	if (int_flag == 1){
 		if(led_flag1 == 1) Cycle(adc_value);
 		if(led_flag2 == 1) Cycle_Reverse(adc_value);

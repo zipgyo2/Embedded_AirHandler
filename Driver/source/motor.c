@@ -25,6 +25,62 @@ void Motor_Init(void)
 	LPC_GPIO2->FIODIR |= (1<<11)|(1<<12)|(1<<13);
 	LPC_GPIO3->FIODIR |= (1<<25)|(1<<26);
 }
+
+void Cycle_Init(void)
+{
+	uint32_t count = 0;
+	for(count = 0; count < 24; count++)
+	{
+		LPC_GPIO0->FIOSET = (1<<5);
+		LPC_GPIO0->FIOCLR = (1<<10);
+		LPC_GPIO0->FIOSET = (1<<23);
+		LPC_GPIO0->FIOCLR = (1<<24);
+		Delay(SEC_1/(100));
+
+		LPC_GPIO0->FIOCLR = (1<<5);
+		LPC_GPIO0->FIOSET = (1<<10);
+		LPC_GPIO0->FIOSET = (1<<23);
+		LPC_GPIO0->FIOCLR = (1<<24);
+		Delay(SEC_1/(100));
+
+		LPC_GPIO0->FIOCLR = (1<<5);
+		LPC_GPIO0->FIOSET = (1<<10);
+		LPC_GPIO0->FIOCLR = (1<<23);
+		LPC_GPIO0->FIOSET = (1<<24);
+		Delay(SEC_1/(100));
+
+		LPC_GPIO0->FIOSET = (1<<5);
+		LPC_GPIO0->FIOCLR = (1<<10);
+		LPC_GPIO0->FIOCLR = (1<<23);
+		LPC_GPIO0->FIOSET = (1<<24);
+		Delay(SEC_1/(100));
+		
+		LPC_GPIO0->FIOSET = (1<<5);
+		LPC_GPIO0->FIOCLR = (1<<10);
+		LPC_GPIO0->FIOCLR = (1<<23);
+		LPC_GPIO0->FIOSET = (1<<24);
+		Delay(SEC_1/(100));
+		
+		LPC_GPIO0->FIOCLR = (1<<5);
+		LPC_GPIO0->FIOSET = (1<<10);
+		LPC_GPIO0->FIOCLR = (1<<23);
+		LPC_GPIO0->FIOSET = (1<<24);
+		Delay(SEC_1/(100));
+		
+		LPC_GPIO0->FIOCLR = (1<<5);
+		LPC_GPIO0->FIOSET = (1<<10);
+		LPC_GPIO0->FIOSET = (1<<23);
+		LPC_GPIO0->FIOCLR = (1<<24);
+		Delay(SEC_1/(100));
+		
+		LPC_GPIO0->FIOSET = (1<<5);
+		LPC_GPIO0->FIOCLR = (1<<10);
+		LPC_GPIO0->FIOSET = (1<<23);
+		LPC_GPIO0->FIOCLR = (1<<24);
+		Delay(SEC_1/(100));
+	}
+}
+
 void Cycle(uint32_t adc_value)
 {
 	uint32_t count = 0;
@@ -57,8 +113,8 @@ void Cycle(uint32_t adc_value)
 		LPC_GPIO0->FIOSET = (1<<24);
 		Delay(SEC_1/(adc_value/50));
 
-		if(adc_flag==1) break;
 		if(int_flag==0) break;
+		if(adc_flag==1) break;	
 	}
 }
 void Cycle_Reverse(uint32_t adc_value)
@@ -93,7 +149,7 @@ void Cycle_Reverse(uint32_t adc_value)
 		LPC_GPIO0->FIOCLR = (1<<24);
 		Delay(SEC_1/(adc_value/50));
 
-		if(adc_flag==1) break;
 		if(int_flag==0) break;
+		if(adc_flag==1) break;
 	}
 }

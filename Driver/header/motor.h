@@ -13,5 +13,6 @@
 void Motor_Init (void);
 void Cycle(uint32_t adc_value);
 void Cycle_Reverse(uint32_t adc_value);
+void Cycle_Init();
 
 #endif
