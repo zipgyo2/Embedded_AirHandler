@@ -7,6 +7,6 @@
 .\objects\clock.o: C:\Keil_v5\ARM\CMSIS\Include\core_cmFunc.h
 .\objects\clock.o: C:\Keil_v5\ARM\PACK\Keil\LPC1700_DFP\2.6.0\Device\Include\system_LPC17xx.h
 .\objects\clock.o: .\Driver\header\fnd.h
-.\objects\clock.o: ..\Huins_NXP_LPC1768_Library\Drivers\include\lpc_types.h
-.\objects\clock.o: ..\Huins_NXP_LPC1768_Library\Drivers\include\lpc17xx_timer.h
-.\objects\clock.o: ..\Huins_NXP_LPC1768_Library\Drivers\include\lpc17xx_pinsel.h
+.\objects\clock.o: ..\..\..\Desktop\Cortex-M3\source_code\Huins_NXP_LPC1768_Library\Drivers\include\lpc_types.h
+.\objects\clock.o: ..\..\..\Desktop\Cortex-M3\source_code\Huins_NXP_LPC1768_Library\Drivers\include\lpc17xx_timer.h
+.\objects\clock.o: ..\..\..\Desktop\Cortex-M3\source_code\Huins_NXP_LPC1768_Library\Drivers\include\lpc17xx_pinsel.h

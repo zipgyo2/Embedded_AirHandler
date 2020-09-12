@@ -9,6 +9,7 @@
 #include "motor.h"
 #include "keypad.h"
 #include "Clock.h"
+#include "mode.h"
 
 #define _ADC_INT         ADC_ADINTEN2
 #define _ADC_CHANNEL      ADC_CHANNEL_2
@@ -28,6 +29,11 @@ uint8_t time_1s =0;
 uint8_t time_handle = 0;
 uint8_t time_handle_check = 0;
 uint8_t time_select = 5;
+
+uint8_t led_flag1 = 0;
+uint8_t led_flag2 = 0;
+uint8_t led_flag3 = 0;
+uint8_t led_flag4 = 0;
 
 void Delay(unsigned long d_t);
 void PinConfig(void);
@@ -66,6 +72,12 @@ int main(){
 			Delay(10000);
 		}
 		else{
+			uint32_t input = 0;
+			uint32_t input_tmp = Keypad('C');
+			input = input_tmp;
+			Delay(5000);
+			if(input != 0) Mode(input);
+			
 			time_handle = Joystick_read(); //JoyStick ÀÐ±â
 			Delay(5000);
 			if(time_handle_check == 0){
@@ -138,8 +150,16 @@ void ADC_IRQHandler(void)
 		NVIC_DisableIRQ(ADC_IRQn);
 	}
 	adc_flag = 1;
-	if (int_flag == 1)
-		Cycle(adc_value);
+	if (int_flag == 1){
+		if(led_flag1 == 1) {
+			led_flag2 = 0;
+			Cycle(adc_value);
+		}
+		if(led_flag2 == 1) {
+			led_flag1 =0;
+			Cycle_Reverse(adc_value);
+		}
+	}
 	else adc_flag = 0;
 }
 
@@ -147,8 +167,16 @@ void EINT0_IRQHandler(void)
 {
 	EXTI_ClearEXTIFlag(EXTI_EINT0);   // Interrupt ??? ??? ?? ?? ?? ??? ???.
 	int_flag = int_flag^0x1;
-	if (int_flag == 1)
-		Cycle(adc_value);
+	if (int_flag == 1){
+		if(led_flag1 == 1) {
+			led_flag2 = 0;
+			Cycle(adc_value);
+		}
+		if(led_flag2 == 1) {
+			led_flag1 =0;
+			Cycle_Reverse(adc_value);
+		}
+	}
 }
 
 void Delay(unsigned long d_t)

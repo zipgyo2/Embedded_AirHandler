@@ -1,7 +1,7 @@
 #include "keypad.h"
 #include "fnd.h"
 
-void EXT_IO_init(){
+void Keypad_Init(){
 	/*EXT_IO on PORT0 as Output*/
 	LPC_GPIO0->FIODIR |= (1<<4)|(1<<19)|(1<<20)|(1<<21) ;	// Mainboard Chip Select
 	LPC_GPIO1->FIODIR |= (1<<21);
@@ -24,7 +24,7 @@ void Keypad_DIR_Input(){
 	LPC_GPIO0->FIODIR &= ~(1<<24);
   /* PORT3 defined as input    */
   LPC_GPIO3->FIODIR &= ~(1<<25);
-	LPC_GPIO3->FIODIR &= ~(1<<26);
+	LPC_GPIO3->FIODIR &= ~(1<<26);	
 }
 
 void EXT_IO_A_CS(){
@@ -100,7 +100,7 @@ void Keypad_Output_Row_4(){
 	LPC_GPIO2->FIOPIN &= ~(1<<11);
 }
 
-uint8_t Keypad_Input(uint8_t Low_Num){
+uint32_t Keypad_Input(uint8_t Low_Num){
 	uint32_t Key_val=0;
 	LPC_GPIO1->FIOPIN &= ~(1<<21);  // Keypad Input CS On 
 
@@ -126,7 +126,7 @@ uint8_t Keypad_Input(uint8_t Low_Num){
 	return Key_val;
 }
 
-uint8_t Keypad(int8_t EXT_IO_DIR){
+uint32_t Keypad(int8_t EXT_IO_DIR){
 	uint8_t Key_Temp, Key_Value=0;
 	uint32_t fiopin = LPC_GPIO0->FIOPIN;
 	
@@ -177,7 +177,7 @@ uint8_t Keypad(int8_t EXT_IO_DIR){
 	Key_Temp = Keypad_Input(4);
 	if (Key_Temp == 1)  Key_Value = 12;
 	
-	   LPC_GPIO0->FIOPIN = fiopin;
+	LPC_GPIO0->FIOPIN = fiopin;
 	FND_Init();
 
 	return Key_Value;

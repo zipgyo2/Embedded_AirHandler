@@ -29,7 +29,6 @@ void Joystick_Init(void){
 
 uint8_t Joystick_read(){
    uint8_t js_val = 0;
-   LPC_GPIO4->FIOPIN &= ~(1<<28);
    
    if((LPC_GPIO1->FIOPIN >> 20) & 0x01);
    else {
@@ -48,8 +47,6 @@ uint8_t Joystick_read(){
    else js_val=4;
    if((LPC_GPIO1->FIOPIN >> 26) & 0x01);
    else js_val=5;
-   
-   LPC_GPIO4->FIOPIN |= ~(1<<28);
    
    return js_val;
 }

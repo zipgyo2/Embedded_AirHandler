@@ -61,3 +61,39 @@ void Cycle(uint32_t adc_value)
 		if(int_flag==0) break;
 	}
 }
+void Cycle_Reverse(uint32_t adc_value)
+{
+	uint32_t count = 0;
+	if(adc_value == 0) adc_value = 10;
+	adc_flag = 0;
+
+	for(count = 0; count < 1; count++)
+	{
+		LPC_GPIO0->FIOSET = (1<<5);
+		LPC_GPIO0->FIOCLR = (1<<10);
+		LPC_GPIO0->FIOCLR = (1<<23);
+		LPC_GPIO0->FIOSET = (1<<24);
+		Delay(SEC_1/(adc_value/50));
+		
+		LPC_GPIO0->FIOCLR = (1<<5);
+		LPC_GPIO0->FIOSET = (1<<10);
+		LPC_GPIO0->FIOCLR = (1<<23);
+		LPC_GPIO0->FIOSET = (1<<24);
+		Delay(SEC_1/(adc_value/50));
+		
+		LPC_GPIO0->FIOCLR = (1<<5);
+		LPC_GPIO0->FIOSET = (1<<10);
+		LPC_GPIO0->FIOSET = (1<<23);
+		LPC_GPIO0->FIOCLR = (1<<24);
+		Delay(SEC_1/(adc_value/50));
+		
+		LPC_GPIO0->FIOSET = (1<<5);
+		LPC_GPIO0->FIOCLR = (1<<10);
+		LPC_GPIO0->FIOSET = (1<<23);
+		LPC_GPIO0->FIOCLR = (1<<24);
+		Delay(SEC_1/(adc_value/50));
+
+		if(adc_flag==1) break;
+		if(int_flag==0) break;
+	}
+}

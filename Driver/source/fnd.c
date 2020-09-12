@@ -146,6 +146,10 @@ void FND_DATA(uint8_t dataNum)
 			LPC_GPIO3->FIOCLR = FND_G;
 			break;
 		
+		case 'I':
+			LPC_GPIO2->FIOCLR = FND_E | FND_F;  
+			break;  
+		
 		case 'L':
 			LPC_GPIO2->FIOCLR = FND_D | FND_E | FND_F;  
 			break;
@@ -174,6 +178,17 @@ void FND_DATA(uint8_t dataNum)
 		
 		case 'D':
 			LPC_GPIO3->FIOCLR = FND_DP;
+			break;
+			
+		case 'U':
+			LPC_GPIO1->FIOCLR = FND_C;
+			LPC_GPIO2->FIOCLR = FND_D | FND_E;
+			break;
+		
+		case '_':
+			LPC_GPIO2->FIOCLR = FND_D;
+			break;
+
 	}
 	FND_Data_CS();	//	Clock 
 }
