@@ -77,6 +77,7 @@ int main(){
 			ADC_StartCmd(LPC_ADC,ADC_START_NOW);
 			NVIC_EnableIRQ(ADC_IRQn);
 			Delay(10000);
+			
 			input = Keypad('C');
 			Delay(5000);
 			if(input != 0){
@@ -166,6 +167,7 @@ void ADC_IRQHandler(void)
 	if (int_flag == 1){
 		if(led_flag1 == 1) Cycle(adc_value);
 		if(led_flag2 == 1) Cycle_Reverse(adc_value);
+		if(led_flag1 == 0 && led_flag2 == 0) Cycle_Init(adc_value);
 	}
 	else adc_flag = 0;
 }
@@ -177,6 +179,7 @@ void EINT0_IRQHandler(void)
 	if (int_flag == 1){
 		if(led_flag1 == 1) Cycle(adc_value);
 		if(led_flag2 == 1) Cycle_Reverse(adc_value);
+		if(led_flag1 == 0 && led_flag2 == 0) Cycle_Init(adc_value);
 	}
 }
 

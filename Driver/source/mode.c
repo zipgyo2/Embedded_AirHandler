@@ -74,7 +74,7 @@ void Mode(uint32_t input){
 			Led_On(1);
 			Led_On(2);
 			Delay(5000);
-			break;
+		break;
 			
 		case 5:
 			if(led_flag1 == 1){
@@ -86,7 +86,7 @@ void Mode(uint32_t input){
 			Led_On(3);
 			Led_On(4);
 			Delay(5000);
-			break;
+		break;
 			
 		case 6:
 			if(led_flag4 == 1){
@@ -98,7 +98,7 @@ void Mode(uint32_t input){
 			Led_On(5);
 			Led_On(6);
 			Delay(5000);
-			break;
+		break;
 			
 		case 11:
 			if(led_flag3 == 1){
@@ -110,7 +110,7 @@ void Mode(uint32_t input){
 			Led_On(7);
 			Led_On(8);
 			Delay(5000);
-			break;
+		break;
 			
 		case 15:
 			Led_All_Off();
@@ -119,6 +119,6 @@ void Mode(uint32_t input){
 			led_flag3=0;
 			led_flag4=0;
 			Delay(5000);
-			break;
+		break;
 	}
 }
