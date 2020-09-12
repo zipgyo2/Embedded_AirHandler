@@ -77,6 +77,17 @@ int main(){
 			ADC_StartCmd(LPC_ADC,ADC_START_NOW);
 			NVIC_EnableIRQ(ADC_IRQn);
 			Delay(10000);
+			input = Keypad('C');
+			Delay(5000);
+			if(input != 0){
+				input_tag = input;
+				Mode(input);
+				if(int_flag == 1) {
+					adc_flag = 0;
+					int_flag = 0;
+				}
+				int_flag = 1;
+			}
 		}
 		else{
 			input = Keypad('C');
@@ -108,8 +119,6 @@ int main(){
 }
 
 
-
-
 void TIMER0_IRQHandler(void){   // 1초에 한번 씩 진입
    TIM_ClearIntPending(LPC_TIM0, TIM_MR0_INT); //TIM0 interrupt clear
    
@@ -121,26 +130,21 @@ void TIMER0_IRQHandler(void){   // 1초에 한번 씩 진입
    if(time_flag == 10) time_flag =0;
    
    time_1s++;
-   if(time_1s == 10)
-   {
+   if(time_1s == 10){
       time_10s++;
       time_1s=0;
    }
-   if(time_10s == 6)
-   {
+   if(time_10s == 6){
       time_1m++;
       time_10s = 0;
    }
-   if(time_1m == 10)
-   {
+   if(time_1m == 10){
       time_10m++;
       time_1m = 0;
    }   
-   if(time_10m == 6)
-   {
+   if(time_10m == 6){
       time_1h ++;
-      time_10m =0 ;
-      
+      time_10m =0 ;    
    }   
    if(time_1h ==10){
       time_10h ++;
@@ -165,14 +169,8 @@ void ADC_IRQHandler(void)
 	}
 	adc_flag = 1;
 	if (int_flag == 1){
-		if(led_flag1 == 1) {
-			led_flag2 = 0;
-			Cycle(adc_value);
-		}
-		if(led_flag2 == 1) {
-			led_flag1 =0;
-			Cycle_Reverse(adc_value);
-		}
+		if(led_flag1 == 1) Cycle(adc_value);
+		if(led_flag2 == 1) Cycle_Reverse(adc_value);
 	}
 	else adc_flag = 0;
 }
@@ -182,14 +180,8 @@ void EINT0_IRQHandler(void)
 	EXTI_ClearEXTIFlag(EXTI_EINT0);   // Interrupt ??? ??? ?? ?? ?? ??? ???.
 	int_flag = int_flag^0x1;
 	if (int_flag == 1){
-		if(led_flag1 == 1) {
-			led_flag2 = 0;
-			Cycle(adc_value);
-		}
-		if(led_flag2 == 1) {
-			led_flag1 =0;
-			Cycle_Reverse(adc_value);
-		}
+		if(led_flag1 == 1) Cycle(adc_value);
+		if(led_flag2 == 1) Cycle_Reverse(adc_value);
 	}
 }
 

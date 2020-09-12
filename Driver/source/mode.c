@@ -107,5 +107,13 @@ void Mode(uint32_t input){
 			Led_On(7);
 			Led_On(8);
 			break;
+			
+		case 15:
+			Led_All_Off();
+			led_flag1=0;
+			led_flag2=0;
+			led_flag3=0;
+			led_flag4=0;
+			break;
 	}
 }
