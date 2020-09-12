@@ -1,0 +1,10 @@
+.\objects\keypad.o: Driver\source\keypad.c
+.\objects\keypad.o: .\Driver\header\keypad.h
+.\objects\keypad.o: C:\Keil_v5\ARM\PACK\Keil\LPC1700_DFP\2.6.0\Device\Include\LPC17XX.h
+.\objects\keypad.o: C:\Keil_v5\ARM\CMSIS\Include\core_cm3.h
+.\objects\keypad.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\keypad.o: C:\Keil_v5\ARM\CMSIS\Include\core_cmInstr.h
+.\objects\keypad.o: C:\Keil_v5\ARM\CMSIS\Include\core_cmFunc.h
+.\objects\keypad.o: C:\Keil_v5\ARM\PACK\Keil\LPC1700_DFP\2.6.0\Device\Include\system_LPC17xx.h
+.\objects\keypad.o: ..\Huins_NXP_LPC1768_Library\Drivers\include\lpc_types.h
+.\objects\keypad.o: .\Driver\header\fnd.h
